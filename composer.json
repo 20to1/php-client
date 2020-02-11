@@ -10,7 +10,7 @@
   "homepage": "https://github.com/20to1/php-client",
   "license": "Apache-2.0",
   "require": {
-    "php": ">=5.3.3",
+    "php": ">=5.5",
     "ext-curl": "*",
     "ext-json": "*",
     "ext-mbstring": "*"
