@@ -1,0 +1,27 @@
+{
+  "name": "20to1/php-client",
+  "version": "1.0",
+  "description": "PHP client library",
+  "keywords": [
+    "php",
+    "sdk",
+    "api"
+  ],
+  "homepage": "https://github.com/20to1/php-client",
+  "license": "Apache-2.0",
+  "require": {
+    "php": ">=5.3.3",
+    "ext-curl": "*",
+    "ext-json": "*",
+    "ext-mbstring": "*"
+  },
+  "autoload": {
+    "psr-4": { "TwentyToOne\\PHPClient\\" : "lib/" }
+  },
+  "autoload-dev": {
+    "psr-4": { "TwentyToOne\\PHPClient\\" : "test/" }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8.5"
+  }
+}
