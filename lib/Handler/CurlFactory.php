@@ -6,8 +6,23 @@ namespace Offchaindata\PHPClient\Handler;
 
 class CurlFactory
 {
+    private $methods = [
+        'GET',
+        'POST',
+        'OPTIONS',
+        'DELETE',
+        'PUT',
+        'PATCH',
+    ];
+
+    private $method;
+
     public function create($method, $url, $options = null)
     {
+        $this->method = $method;
+
+        $this->sanitizeMethod();
+
         $resource = curl_init();
 
         $conf = $this->getConfig($url);
@@ -17,14 +32,14 @@ class CurlFactory
             $conf
         );
 
-        $response = curl_exec($resource);
+        curl_exec($resource);
 
         return $resource;
     }
 
     public function getConfig($url)
     {
-        return [
+        $conf = [
             CURLOPT_URL            => $url,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_HEADER         => true,
@@ -35,5 +50,14 @@ class CurlFactory
             CURLOPT_CONNECTTIMEOUT => 120,
             CURLOPT_TIMEOUT        => 120,
         ];
+        return $conf;
+    }
+
+    public function sanitizeMethod()
+    {
+        if (!in_array($this->method, $this->methods)) {
+            echo "Method not recognized";
+            die;
+        }
     }
 }
