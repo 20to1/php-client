@@ -22,11 +22,11 @@ class Client
      * @param string     $token   JWT Auth token
      * @param array|null $options HTTP custom options
      */
-    public function __construct($token, array $options = null)
+    public function __construct(array $options = ['token' => null])
     {
         $GLOBALS = [
-            'accept' => 'application/json',
-            'token' => $token
+            'accept' => isset($options['accept']) ? $options['accept'] : 'application/json',
+            'token'  => isset($options['token']) ? $options['token'] : null
         ];
 
         $this->call = new Callables();
