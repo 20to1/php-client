@@ -1,7 +1,7 @@
 <?php
 
 
-namespace TwentyToOne\PHPClient;
+namespace Offchaindata\PHPClient;
 
 use \Exception;
 
