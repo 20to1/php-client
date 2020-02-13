@@ -1,7 +1,7 @@
 <?php
 
 
-namespace TwentyToOne\PHPClient;
+namespace Offchaindata\PHPClient;
 
 /**
  * Class Client
@@ -10,9 +10,6 @@ namespace TwentyToOne\PHPClient;
  */
 class Client
 {
-    /**
-     * @var Callables
-     */
     public $call;
 
     /**
