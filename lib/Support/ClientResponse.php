@@ -8,12 +8,29 @@ class ClientResponse
 {
     protected $resources;
 
+    public function getHandle()
+    {
+        return curl_exec($this->resources);
+    }
+
+    public function getPartials()
+    {
+        $headerSize = curl_getinfo($this->resources, CURLINFO_HEADER_SIZE);
+
+        $partials = [
+            'headers' => substr($this->getHandle(), 0, $headerSize),
+            'body' => substr($this->getHandle(), $headerSize),
+        ];
+
+        return $partials;
+    }
+
     /**
      * Return HTTP Body from cURL request
      */
     public function getBody()
     {
-        // TODO: Implement getBody() method.
+        return $this->getPartials()['body'];
     }
 
     /**
@@ -21,7 +38,11 @@ class ClientResponse
      */
     public function getHeaders()
     {
+        $headersRaw = $this->getPartials()['headers'];
 
+        $explotion = explode("\r\n", $headersRaw);
+
+        return array_filter($explotion);
     }
 
     public function getContentType()
