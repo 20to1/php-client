@@ -40,9 +40,13 @@ class ClientResponse
     {
         $headersRaw = $this->getPartials()['headers'];
 
-        $explotion = explode("\r\n", $headersRaw);
+        $explotion = array_filter(explode("\r\n", $headersRaw));
 
-        return array_filter($explotion);
+        unset($explotion[0]);
+
+        $explotion = $this->serialize($explotion);
+
+        return $explotion;
     }
 
     public function getContentType()
@@ -53,5 +57,18 @@ class ClientResponse
     public function getStatusCode()
     {
         return curl_getinfo($this->resources, CURLINFO_HTTP_CODE);
+    }
+
+    public function serialize($resources)
+    {
+        $result = [];
+        foreach ($resources as $resource) {
+            $resource = str_replace(" ", "", $resource);
+            $obj = explode(":", $resource, 2);
+
+            $result[$obj[0]] = $obj[1];
+        }
+
+        return $result;
     }
 }
