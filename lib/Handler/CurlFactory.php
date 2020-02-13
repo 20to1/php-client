@@ -1,30 +1,39 @@
 <?php
 
 
-namespace TwentyToOne\PHPClient\Handler;
+namespace Offchaindata\PHPClient\Handler;
 
 
 class CurlFactory
 {
-    private $curl;
-
-    public function __construct()
+    public function create($method, $url, $options = null)
     {
-        $this->curl = curl_init();
+        $resource = curl_init();
 
-        curl_setopt($this->curl, CURLOPT_HTTPHEADER, [
-            'Accept: ' . $GLOBALS['accept']
-        ]);
+        $conf = $this->getConfig($url);
 
-        return $this->curl;
+        curl_setopt_array(
+            $resource,
+            $conf
+        );
+
+        $response = curl_exec($resource);
+
+        return $resource;
     }
 
-    public function sendRequest($options = null)
+    public function getConfig($url)
     {
-        if (isset($options['url'])) {
-            curl_setopt($this->curl, CURLOPT_URL, $options['url']);
-        }
-
-        return curl_exec($this->curl);
+        return [
+            CURLOPT_URL => $url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_HEADER         => false,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_MAXREDIRS      => 10,
+            CURLOPT_ENCODING       => "",
+            CURLOPT_AUTOREFERER    => true,
+            CURLOPT_CONNECTTIMEOUT => 120,
+            CURLOPT_TIMEOUT        => 120,
+        ];
     }
 }
