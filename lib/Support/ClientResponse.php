@@ -1,7 +1,7 @@
 <?php
 
 
-namespace TwentyToOne\PHPClient\Support;
+namespace Offchaindata\PHPClient\Support;
 
 
 interface ClientResponse
@@ -15,4 +15,8 @@ interface ClientResponse
      * Return HTTP Headers from cURL request
      */
     public function getHeaders();
+
+    public function getContentType();
+
+    public function getStatusCode();
 }
