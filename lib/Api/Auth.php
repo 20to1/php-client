@@ -1,31 +1,25 @@
 <?php
 
 
-namespace TwentyToOne\PHPClient\Api;
+namespace Offchaindata\PHPClient\Api;
 
 
-use TwentyToOne\PHPClient\Support\ClientResponse;
-use TwentyToOne\PHPClient\Handler\CurlFactory;
+use Offchaindata\PHPClient\Support\ClientResponse;
+use Offchaindata\PHPClient\Handler\CurlFactory;
 
 class Auth implements ClientResponse
 {
-    private $curl;
     private $url ='https://offchaindata.com/api/v1/auth/me';
 
-    public function __construct()
-    {
-        $this->curl = new CurlFactory();
-    }
+    public $response;
 
-    /**
-     * @param null $options
-     * @return bool|string
-     */
-    public function me($options = null)
+    public function me()
     {
-        return $this->curl->sendRequest([
-            'url' => $this->url
-        ]);
+        $factory = new CurlFactory();
+
+        $this->response = $factory->create("GET", $this->url);
+
+        return $this;
     }
 
     /**
@@ -41,6 +35,16 @@ class Auth implements ClientResponse
      */
     public function getHeaders()
     {
-        // TODO: Implement getHeaders() method.
+
+    }
+
+    public function getContentType()
+    {
+        return curl_getinfo($this->response, CURLINFO_CONTENT_TYPE);
+    }
+
+    public function getStatusCode()
+    {
+        return curl_getinfo($this->response, CURLINFO_HTTP_CODE);
     }
 }
