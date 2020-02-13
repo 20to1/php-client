@@ -1,13 +1,13 @@
 <?php
 
 
-namespace TwentyToOne\PHPClient;
+namespace Offchaindata\PHPClient;
 
-use TwentyToOne\PHPClient\Api\Auth;
+use Offchaindata\PHPClient\Api\Auth;
 
 /**
  * Class Callables
- * @package  TwentyToOne\PHPClient
+ * @package  Offchaindata\PHPClient
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  */
 class Callables
