@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Offchaindata\PHPClient\Support;
+namespace Offchaindata\Support;
 
 
 class ClientResponse
@@ -19,7 +19,7 @@ class ClientResponse
 
         $partials = [
             'headers' => substr($this->getHandle(), 0, $headerSize),
-            'body' => substr($this->getHandle(), $headerSize),
+            'body'    => substr($this->getHandle(), $headerSize),
         ];
 
         return $partials;
@@ -28,9 +28,14 @@ class ClientResponse
     /**
      * Return HTTP Body from cURL request
      */
-    public function getBody()
+    public function getBodyRaw()
     {
         return $this->getPartials()['body'];
+    }
+
+    public function getBody()
+    {
+        return json_decode($this->getPartials()['body'], true);
     }
 
     /**
