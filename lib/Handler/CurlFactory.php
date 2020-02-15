@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Offchaindata\PHPClient\Handler;
+namespace Offchaindata\Handler;
 
 
 class CurlFactory
@@ -25,7 +25,7 @@ class CurlFactory
 
         $resource = curl_init();
 
-        $conf = $this->getConfig($url);
+        $conf = $this->getConfig($url, $options);
 
         curl_setopt_array(
             $resource,
@@ -37,19 +37,25 @@ class CurlFactory
         return $resource;
     }
 
-    public function getConfig($url)
+    public function getConfig($url, $options)
     {
         $conf = [
             CURLOPT_URL            => $url,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_HEADER         => true,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_MAXREDIRS      => 10,
+            CURLOPT_FOLLOWLOCATION => false,
+            CURLOPT_MAXREDIRS      => 0,
             CURLOPT_ENCODING       => "",
             CURLOPT_AUTOREFERER    => true,
             CURLOPT_CONNECTTIMEOUT => 120,
             CURLOPT_TIMEOUT        => 120,
+            CURLOPT_HTTPHEADER     => $GLOBALS['headers']
         ];
+
+        if (isset($options['body'])) {
+            $conf[CURLOPT_POSTFIELDS] = json_encode($options['body']);
+        }
+
         return $conf;
     }
 
