@@ -1,9 +1,10 @@
 <?php
 
 
-namespace Offchaindata\PHPClient;
+namespace Offchaindata;
 
-use Offchaindata\PHPClient\Api\Auth;
+use Offchaindata\Api\AuthHandler;
+use Offchaindata\Api\DateHandler;
 
 /**
  * Class Callables
@@ -13,9 +14,10 @@ use Offchaindata\PHPClient\Api\Auth;
 class Callables
 {
     /**
-     * @var Auth API Authenticator
+     * @var AuthHandler API Authenticator
      */
     public $auth;
+    public $date;
 
     /**
      * Callables constructor
@@ -23,6 +25,7 @@ class Callables
      */
     public function __construct()
     {
-        $this->auth = new Auth();
+        $this->auth = new AuthHandler();
+        $this->date = new DateHandler();
     }
 }
