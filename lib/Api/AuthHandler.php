@@ -8,15 +8,13 @@ use Offchaindata\PHPClient\Support\ClientResponse;
 
 class Auth extends ClientResponse
 {
-    private $url ='https://offchaindata.com/api/v1/auth/me';
-
     protected $resources;
 
     public function me()
     {
         $factory = new CurlFactory();
 
-        $this->resources = $factory->create("GET", $this->url);
+        $this->resources = $factory->create("GET", $GLOBALS['url']['auth']);
 
         return $this;
     }

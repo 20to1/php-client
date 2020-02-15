@@ -16,10 +16,10 @@
     "ext-mbstring": "*"
   },
   "autoload": {
-    "psr-4": { "Offchaindata\\PHPClient\\" : "lib/" }
+    "psr-4": { "Offchaindata\\" : "lib/" }
   },
   "autoload-dev": {
-    "psr-4": { "Offchaindata\\PHPClient\\" : "test/" }
+    "psr-4": { "Offchaindata\\" : "test/" }
   },
   "require-dev": {
     "phpunit/phpunit": "^8.5"
