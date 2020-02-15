@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Offchaindata\PHPClient\Api;
+namespace Offchaindata\Api;
 
-use Offchaindata\PHPClient\Handler\CurlFactory;
-use Offchaindata\PHPClient\Support\ClientResponse;
+use Offchaindata\Handler\CurlFactory;
+use Offchaindata\Support\ClientResponse;
 
-class Auth extends ClientResponse
+class AuthHandler extends ClientResponse
 {
     protected $resources;
 
