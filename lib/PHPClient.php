@@ -1,14 +1,14 @@
 <?php
 
 
-namespace Offchaindata\PHPClient;
+namespace Offchaindata;
 
 /**
  * Class Client
  * @package  TwentyToOne\PHPClient
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  */
-class Client
+class PHPClient
 {
     public $call;
 
