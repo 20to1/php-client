@@ -21,11 +21,10 @@ class Callables
 
     /**
      * Callables constructor
-     * @param null
      */
-    public function __construct()
+    public function __construct($token, array $options = null)
     {
-        $this->auth = new AuthHandler();
-        $this->date = new DateHandler();
+        $this->auth = new AuthHandler($token, $options);
+        $this->date = new DateHandler($token, $options);
     }
 }
