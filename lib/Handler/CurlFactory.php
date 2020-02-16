@@ -49,7 +49,11 @@ class CurlFactory
             CURLOPT_AUTOREFERER    => true,
             CURLOPT_CONNECTTIMEOUT => 120,
             CURLOPT_TIMEOUT        => 120,
-            CURLOPT_HTTPHEADER     => $GLOBALS['headers']
+            CURLOPT_HTTPHEADER     => [
+                'Authorization: Bearer ' . $options['token'],
+                'Content-Type: ' . (isset($options['content-type']) ? $options['content-type'] : 'application/json'),
+                'Accept: ' . (isset($options['accept']) ? $options['accept'] : 'application/json'),
+            ]
         ];
 
         if (isset($options['body'])) {
