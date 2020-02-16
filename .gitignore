@@ -3,3 +3,5 @@ vendor/
 composer.lock
 travis-ci/accounts.json
 test/notAutomatedTestYet.php
+
+.phpunit.result.cache
