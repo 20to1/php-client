@@ -11,7 +11,7 @@ class DateHandler extends ClientResponse
 {
     private $options = [];
     protected $resources;
-    private $baseURI = 'localhost:9999/api/v1/date/';
+    private $baseURI = 'https://offchaindata.com/api/v1/date';
 
     public function __construct($token, array $options = null)
     {
@@ -42,7 +42,7 @@ class DateHandler extends ClientResponse
 
         $this->resources = $factory->create(
             "GET",
-            $this->baseURI . "holidays",
+            $this->baseURI . "/holidays",
             $this->options
         );
 
@@ -55,7 +55,7 @@ class DateHandler extends ClientResponse
 
         $this->resources = $factory->create(
             "GET",
-            $this->baseURI . "locations",
+            $this->baseURI . "/locations",
             $this->options
         );
 

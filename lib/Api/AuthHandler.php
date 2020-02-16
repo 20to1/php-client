@@ -23,7 +23,7 @@ class AuthHandler extends ClientResponse
 
         $this->resources = $factory->create(
             "GET",
-            'localhost:9999/api/v1/auth/me',
+            'https://offchaindata.com/api/v1/auth/me',
             $this->options
         );
 
