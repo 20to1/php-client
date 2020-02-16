@@ -9,42 +9,54 @@ use Offchaindata\Support\ClientResponse;
 
 class DateHandler extends ClientResponse
 {
+    private $options = [];
     protected $resources;
+    private $baseURI = 'localhost:9999/api/v1/date/';
 
-    public function date(array $params)
+    public function __construct($token, array $options = null)
+    {
+        $this->options = $options;
+        $this->options['token'] = $token;
+    }
+
+    public function date(array $params = null)
     {
         $factory = new CurlFactory();
 
+        $this->options['body'] = $params;
+
         $this->resources = $factory->create(
             "GET",
-            $GLOBALS['url']['date'],
-            $options['body'] = $params
+            $this->baseURI,
+            $this->options
         );
 
         return $this;
     }
 
-    public function holidays(array $params)
+    public function holidays(array $params = null)
     {
         $factory = new CurlFactory();
 
+        $this->options['body'] = $params;
+
         $this->resources = $factory->create(
             "GET",
-            $GLOBALS['url']['holidays'],
-            $options['body'] = $params
+            $this->baseURI . "holidays",
+            $this->options
         );
 
         return $this;
     }
 
-    public function locations(array $params)
+    public function locations(array $params = null)
     {
         $factory = new CurlFactory();
 
         $this->resources = $factory->create(
             "GET",
-            $GLOBALS['url']['locations'],
-            $options['body'] = $params
+            $this->baseURI . "locations",
+            $this->options
         );
 
         return $this;
