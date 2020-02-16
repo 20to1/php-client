@@ -11,7 +11,7 @@ class AuthHandlerTest extends TestCase
 
     protected function setUp() : void
     {
-        $this->token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6OTk5OVwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1ODE4OTIxODQsImV4cCI6MTU4MTg5NTc4NCwibmJmIjoxNTgxODkyMTg0LCJqdGkiOiJpeHRxN3JXNmd2OU15U1pUIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.nW12Py0siXh9GAitNIyUlHv1jAvSYr0-vVnwNBrN4Oc';
+        $this->token = '';
     }
 
     public function testMe()
