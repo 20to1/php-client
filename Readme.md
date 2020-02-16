@@ -57,17 +57,17 @@ $response = $client->call->date->locations();
 Get specific response
 -
 
-**Get complete headers in array**
+**Get complete headers as array**
 ```php
 $headers = $response->getHeaders();
 ```
 
-**Get complete body in array**
+**Get complete body as array**
 ```php
 $headers = $response->getBody();
 ```
 
-**Get complete body in string**
+**Get complete body as string**
 ```php
 $headers = $response->getBodyRaw();
 ```
