@@ -2,7 +2,7 @@
 
 namespace Offchaindata;
 
-use Offchaindata\Api\AuthHandler;
+use Offchaindata\Handler\AuthHandler;
 use PHPUnit\Framework\TestCase;
 
 class AuthHandlerTest extends TestCase
