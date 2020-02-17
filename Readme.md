@@ -57,27 +57,15 @@ $response = $client->call->date->locations();
 Get specific response
 -
 
-**Get complete headers as array**
+All function is returning guzzle data, if you get used with guzzle, then you will veery easy to understand how to get the response.
+
+
+**Example of Getting complete body**
+```php
+$headers = $response->getBody()->getContents();
+```
+
+**Example of Getting complete headers**
 ```php
 $headers = $response->getHeaders();
-```
-
-**Get complete body as array**
-```php
-$headers = $response->getBody();
-```
-
-**Get complete body as string**
-```php
-$headers = $response->getBodyRaw();
-```
-
-**Get status code in integer**
-```php
-$headers = $response->getStatusCode();
-```
-
-**Get content type**
-```php
-$headers = $response->getContentType();
 ```
