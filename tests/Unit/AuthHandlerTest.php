@@ -29,13 +29,7 @@ class AuthHandlerTest extends TestCase
          * Body response
          * @return array
          */
-        $this->assertIsArray($response->getBody());
-
-        /**
-         * Body response
-         * @return string
-         */
-        $this->assertIsString($response->getBodyRaw());
+        $this->assertIsString($response->getBody()->getContents());
 
         /**
          * Complete headers response
