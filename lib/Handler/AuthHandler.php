@@ -7,7 +7,7 @@ use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7;
 use Offchaindata\Supports\ClientResponse;
 
-class AuthHandler extends ClientResponse
+class AuthHandler
 {
     protected $resources;
     private $options;
