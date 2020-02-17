@@ -25,7 +25,7 @@ class AuthHandler
         $client = new Client();
 
         try {
-            $response = $client->request("GET", 'localhost:9999/api/v1/auth/me', $this->options);
+            $response = $client->request("GET", 'https://offchaindata.com/api/v1/auth/me', $this->options);
         } catch (ClientException $e) {
             $response = $e->getResponse();
         }

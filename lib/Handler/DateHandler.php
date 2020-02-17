@@ -22,19 +22,19 @@ class DateHandler
     {
         $this->options['form_params'] = $params;
 
-        return $this->doRequest('POST', 'localhost:9999/api/v1/date');
+        return $this->doRequest('POST', 'https://offchaindata.com/api/v1/date');
     }
 
     public function locations()
     {
-        return $this->doRequest('GET', 'localhost:9999/api/v1/date/locations');
+        return $this->doRequest('GET', 'https://offchaindata.com/api/v1/date/locations');
     }
 
     public function holidays($params)
     {
         $this->options['form_params'] = $params;
 
-        return $this->doRequest('POST', 'localhost:9999/api/v1/date/holidays');
+        return $this->doRequest('POST', 'https://offchaindata.com/api/v1/date/holidays');
     }
 
     public function doRequest($method, $url)
