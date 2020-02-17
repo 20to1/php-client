@@ -20,7 +20,7 @@ class DateHandler
 
     public function date($params)
     {
-        $this->options['body'] = $params;
+        $this->options['form_params'] = $params;
 
         return $this->doRequest('POST', 'localhost:9999/api/v1/date');
     }
@@ -32,7 +32,7 @@ class DateHandler
 
     public function holidays($params)
     {
-        $this->options['body'] = $params;
+        $this->options['form_params'] = $params;
 
         return $this->doRequest('POST', 'localhost:9999/api/v1/date/holidays');
     }
