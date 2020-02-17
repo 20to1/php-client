@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use Offchaindata\Api\DateHandler;
+use Offchaindata\Handler\DateHandler;
 use PHPUnit\Framework\TestCase;
 
 class DateHandlerTest extends TestCase
@@ -29,13 +29,7 @@ class DateHandlerTest extends TestCase
          * Body response
          * @return array
          */
-        $this->assertIsArray($response->getBody());
-
-        /**
-         * Body response
-         * @return string
-         */
-        $this->assertIsString($response->getBodyRaw());
+        $this->assertIsString($response->getBody()->getContents());
 
         /**
          * Complete headers response
@@ -59,13 +53,7 @@ class DateHandlerTest extends TestCase
          * Body response
          * @return array
          */
-        $this->assertIsArray($response->getBody());
-
-        /**
-         * Body response
-         * @return string
-         */
-        $this->assertIsString($response->getBodyRaw());
+        $this->assertIsString($response->getBody()->getContents());
 
         /**
          * Complete headers response
@@ -89,13 +77,7 @@ class DateHandlerTest extends TestCase
          * Body response
          * @return array
          */
-        $this->assertIsArray($response->getBody());
-
-        /**
-         * Body response
-         * @return string
-         */
-        $this->assertIsString($response->getBodyRaw());
+        $this->assertIsString($response->getBody()->getContents());
 
         /**
          * Complete headers response
