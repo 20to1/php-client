@@ -30,8 +30,6 @@ class AuthHandler
             $response = $e->getResponse();
         }
 
-        $this->resources = $response;
-
-        return $this;
+        return $response;
     }
 }
